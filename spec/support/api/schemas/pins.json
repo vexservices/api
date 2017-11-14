@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties" : {
+    "pins" : {
+      "required" : ["id", "name"],
+      "type": "array",
+      "items": [
+        { "id"            : { "type" : "integer" } },
+        { "name"          : { "type" : "string"  } },
+        { "product_id"    : { "type" : "integer" } },
+        { "regular_price" : { "type" : "decimal" } },
+        { "price"         : { "type" : "decimal" } },
+        { "description"   : { "type" : "string"  } },
+        { "contact_info"  : { "type" : "string"  } },
+        { "category"      : { "type" : "string"  } },
+        { "year"          : { "type" : "integer" } },
+        { "month"         : { "type" : "integer" } },
+        { "hour"          : { "type" : "integer" } },
+        { "day"           : { "type" : "integer" } },
+        { "store_name"    : { "type" : "string"  } },
+        { "store_id"      : { "type" : "integer" } }
+      ],
+
+      "images" : {
+        "required" : ["thumb", "medium", "original"],
+        "type": "array",
+        "items": [
+          { "thumb"    : { "type" : "string"  } },
+          { "medium"   : { "type" : "string"  } },
+          { "original" : { "type" : "string"  } }
+        ]
+      }
+    }
+  }
+}

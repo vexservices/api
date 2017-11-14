@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties" : {
+    "favorites" : {
+      "required" : ["id", "name" ],
+      "type": "array",
+      "items": [
+        { "id"           : { "type" : "integer" } },
+        { "name"         : { "type" : "string"  } },
+        { "address"      : { "type" : "string"  } },
+        { "city"         : { "type" : "string"  } },
+        { "state"        : { "type" : "string"  } },
+        { "zip"          : { "type" : "string"  } },
+        { "phone"        : { "type" : "string"  } },
+        { "email"        : { "type" : "string"  } },
+        { "website"      : { "type" : "string"  } },
+        { "corporate"    : { "type" : "boolean" } },
+        { "favorite"     : { "type" : "boolean" } },
+        { "logo"         : { "type" : "string"  } },
+        { "about"        : { "type" : "string"  } },
+        { "stores_count" : { "type" : "integer" } },
+        { "featured_product" : { "type" : "string" } }
+      ]
+    }
+  }
+}

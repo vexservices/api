@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "required" : ["id", "name"],
+  "properties" : {
+    "id"        : { "type" : "integer" },
+    "name"      : { "type" : "string"  },
+    "address"   : { "type" : "string"  },
+    "city"      : { "type" : "string"  },
+    "state"     : { "type" : "string"  },
+    "zip"       : { "type" : "string"  },
+    "website"   : { "type" : ["string", "null"] },
+    "corporate" : { "type" : "boolean" },
+    "logo"      : { "type" : "string"  },
+    "phone"     : { "type" : ["string", "null"] },
+    "email"     : { "type" : ["string", "null"] },
+    "about"     : { "type" : ["string", "null"] },
+    "stores_count" : { "type" : ["integer"] },
+    "featured_product"  : { "type" : ["string", "null"] },
+    "favorite"  : { "type" : "boolean" }
+  }
+}

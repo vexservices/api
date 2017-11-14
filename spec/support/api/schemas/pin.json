@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "required" : ["id", "name"],
+  "properties" : {
+    "id"            : { "type" : "integer" },
+    "name"          : { "type" : "string"  },
+    "product_id"    : { "type" : "integer" },
+    "regular_price" : { "type" : "decimal" },
+    "price"         : { "type" : "decimal" },
+    "description"   : { "type" : "string"  },
+    "contact_info"  : { "type" : "string"  },
+    "category"      : { "type" : "string"  },
+    "year"          : { "type" : "integer" },
+    "month"         : { "type" : "string"  },
+    "hour"          : { "type" : "string"  },
+    "day"           : { "type" : "string"  },
+    "store_name"    : { "type" : "string"  },
+    "store_id"      : { "type" : "integer" },
+
+    "images" : {
+      "required" : ["thumb", "medium", "original"],
+      "type": "array",
+      "items": [
+        { "thumb"    : { "type" : "string"  } },
+        { "medium"   : { "type" : "string"  } },
+        { "original" : { "type" : "string"  } }
+      ]
+    }
+  }
+}

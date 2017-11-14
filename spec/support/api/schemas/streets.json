@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties" : {
+    "streets" : {
+      "required" : ["id"],
+      "type": "array",
+      "items": [
+        { "id"       : { "type" : "integer" } },
+        { "address"  : { "type" : "decimal" } },
+        { "latitude" : { "type" : "decimal" } }
+      ]
+    }
+  }
+}

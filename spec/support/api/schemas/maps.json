@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties" : {
+    "stores" : {
+      "required" : ["id", "name", "latitude", "longitude"],
+      "type": "array",
+      "items": [
+        { "id"        : { "type" : "integer" } },
+        { "name"      : { "type" : "string"  } },
+        { "latitude"  : { "type" : "integer" } },
+        { "longitude" : { "type" : "decimal" } },
+        { "zip"       : { "type" : "string"  } },
+        { "phone"     : { "type" : "string"  } },
+        { "logo"      : { "type" : "string"  } },
+        { "email"     : { "type" : "string"  } },
+        { "website"   : { "type" : "string"  } },
+        { "about"     : { "type" : "string"  } },
+        { "address"   : { "type" : "string"  } },
+        { "city"      : { "type" : "string"  } },
+        { "state"     : { "type" : "string"  } },
+        { "corporate" : { "type" : "boolean" } }
+      ]
+    }
+  }
+}

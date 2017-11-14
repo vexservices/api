@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "required" : [
+      "id",
+      "token",
+      "kind"
+  ],
+  "properties" : {
+    "id"         : { "type" : "integer" },
+    "token"      : { "type" : "string"  },
+    "push_token" : { "type" : "string"  },
+    "kind"       : { "type" : "string"  },
+    "latitude"   : { "type" : "decimal" },
+    "longitude"  : { "type" : "decimal" },
+    "radius"     : { "type" : "decimal" },
+    "name"       : { "type" : ["string", "null"]  },
+    "email"      : { "type" : ["string", "null"]  },
+    "phone"      : { "type" : ["string", "null"]  },
+
+    "departments" : {
+      "type": "array",
+      "items": [
+        { "id"   : { "type" : "integer" }},
+        { "name" : { "type" : "string" }}
+      ]
+    },
+
+    "streets" : {
+      "type": "array",
+      "items": [
+        { "id"        : { "type" : "integer" }},
+        { "address"   : { "type" : "string"  }},
+        { "latitude"  : { "type" : "decimal" }},
+        { "longitude" : { "type" : "decimal" }}
+      ]
+    }
+  }
+}

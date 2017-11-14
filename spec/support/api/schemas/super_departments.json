@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties" : {
+    "departments" : {
+      "required" : ["id", "name" ],
+      "type": "array",
+      "items": [
+        { "id"   : { "type" : "integer" } },
+        { "name" : { "type" : "string"  } }
+      ],
+      
+      "departments" : {
+        "required" : ["id", "name" ],
+        "type": "array",
+        "items": [
+          { "id"   : { "type" : "integer" } },
+          { "name" : { "type" : "string"  } }
+        ]
+      }
+    }
+  }
+}

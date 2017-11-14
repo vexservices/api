@@ -1,0 +1,23 @@
+{
+  "store" : {
+    "type": "object",
+    "required" : ["id", "name"],
+    "properties" : {
+      "id"   : { "type" : "integer" },
+      "name" : { "type" : "string"  },
+      "logo" : { "type" : "string"  }
+    }
+  },
+
+  "messages" : {
+    "required" : ["id", "message"],
+    "type": "array",
+    "items": [
+      { "id"         : { "type" : "integer"   }},
+      { "message"    : { "type" : "string"    }},
+      { "kind"       : { "type" : "integer"   }},
+      { "read_at"    : { "type" : "datetime"  }},
+      { "created_at" : { "type" : "datetime"  }}
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties" : {
+    "categories" : {
+      "required" : ["id", "name" ],
+      "type": "array",
+      "items": [
+        { "id"   : { "type" : "integer" } },
+        { "name" : { "type" : "string" } },
+        { "count_products" :  { "type" : "integer" } }
+      ]
+    }
+  }
+}
