@@ -1,6 +1,6 @@
 # --- Start of unicorn worker killer code ---
 
-if ENV['RAILS_ENV'] == 'production' || ENV['RAILS_ENV'] == 'staging'
+if ENV['RAILS_ENV'] == 'staging'
   require 'unicorn/worker_killer'
 
   max_request_min =  3072

@@ -1,31 +1,31 @@
 source 'https://rubygems.org'
 
-ruby '2.2.0'
+ruby '2.4.2'
 
 # Rails
-gem 'rails', '4.1.14'
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'rails'
+gem 'sdoc', group: :doc
 gem 'spring', group: :development
 
 # Assets
-gem 'sass-rails', '~> 4.0.3'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder'
 gem 'pg'
 gem 'therubyracer', platforms: :ruby
 # Fix therubyracer on heroku
-gem 'libv8', '3.16.14.3'
+gem 'libv8'
 
 # Pagination
 gem 'kaminari'
 
 # Images
 gem 'carrierwave'
-gem 'rmagick', '2.13.2'
+gem 'rmagick'
 gem 'carrierwave_backgrounder'
 
 # Money
@@ -47,7 +47,7 @@ gem 'geocoder'
 gem 'ancestry'
 
 # Search engine
-gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.1'
+gem 'ransack'
 
 # Encrypt password
 gem 'bcrypt'
@@ -58,8 +58,8 @@ gem 'houston', github: 'nomad/Houston'
 
 group :production do
   gem 'rails_12factor'
-  gem 'unicorn'
-  gem 'unicorn-worker-killer'
+  #gem 'unicorn'
+  #gem 'unicorn-worker-killer'
   gem 'dalli'
 end
 
@@ -70,9 +70,12 @@ end
 group :test do
   gem "factory_girl_rails"
   gem "guard-rspec"
-  gem 'rb-inotify', '~> 0.9'
+  gem 'rb-inotify'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem 'faker'
   gem 'json-schema'
 end
+
+gem 'figaro'
+gem 'responders'
