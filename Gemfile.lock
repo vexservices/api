@@ -49,6 +49,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    airbrussh (1.3.0)
+      sshkit (>= 1.6.1, != 1.7.0)
     ancestry (3.0.1)
       activerecord (>= 3.2.0)
     arel (8.0.0)
@@ -59,6 +61,17 @@ GEM
       unf
     bcrypt (3.1.11)
     builder (3.2.3)
+    capistrano (3.10.0)
+      airbrussh (>= 1.0.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 1.9.0)
+    capistrano-bundler (1.3.0)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-rails (1.3.1)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
     carrierwave (0.11.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -318,6 +331,9 @@ GEM
     multi_xml (0.6.0)
     mustermann (1.0.1)
     nenv (0.3.0)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (4.2.0)
     newrelic_rpm (4.6.0.338)
     nio4r (2.1.0)
     nokogiri (1.8.1)
@@ -445,6 +461,9 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sshkit (1.15.1)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
@@ -474,6 +493,9 @@ DEPENDENCIES
   ancestry
   asset_sync
   bcrypt
+  capistrano
+  capistrano-bundler
+  capistrano-rails
   carrierwave
   carrierwave_backgrounder
   coffee-rails

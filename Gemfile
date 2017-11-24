@@ -79,3 +79,7 @@ end
 
 gem 'figaro'
 gem 'responders'
+
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-bundler'
