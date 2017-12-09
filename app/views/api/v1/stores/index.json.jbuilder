@@ -18,5 +18,6 @@ json.stores @stores do |store|
     json.stores_count store.active_stores_count
     json.featured_product store.featured_publish.try(:product_name)
     json.favorite     store.favorite
+    json.register     store.register ? store.register : false
   end
 end
