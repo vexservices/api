@@ -68,4 +68,8 @@ class Store < ActiveRecord::Base
   def featured_publish
     @featured ||= publishes.featured.first || publishes.first
   end
+
+  def search_name
+    "#{self.short_name} #{self.keywords}"
+  end
 end

@@ -13,4 +13,7 @@ class Api::V1::StoresController < Api::ApiController
   def show
     @store = Store.with_favorite(@device.id).find(params[:id])
   end
+  def search
+    @stores = current_corporate.subtree
+  end
 end

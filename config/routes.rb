@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       resources :super_departments, only: [:index]
 
       resources :stores, only: [ :index, :show ] do
+        collection {get 'search' }
         resources :categories, only: [:index]
         resources :products,   only: [:index, :show]
         resources :stores,     only: [:index]
