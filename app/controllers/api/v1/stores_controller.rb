@@ -14,6 +14,6 @@ class Api::V1::StoresController < Api::ApiController
     @store = Store.with_favorite(@device.id).find(params[:id])
   end
   def search
-    @stores = current_corporate.subtree
+    @stores = current_corporate.subtree.where(search: true)
   end
 end
