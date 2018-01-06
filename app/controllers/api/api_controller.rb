@@ -16,6 +16,7 @@ class Api::ApiController < ApplicationController
 
   def current_user
     @current_user ||= Client.authenticate_with_token(access_token, current_corporate.id)
+    @current_user
   end
   helper_method :current_user
 

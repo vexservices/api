@@ -31,6 +31,8 @@ class ListStores
     def set_stores_ids
       if user && !user.admin
         @stores_ids ||= user.store_ids
+        stores = Store.where(paid: true)
+        @stores_ids = @stores_ids + stores.map(&:id)
       end
     end
 end

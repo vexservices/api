@@ -5,7 +5,6 @@ class Api::V1::StoresController < Api::ApiController
     options = params.permit(:store_id, :page)
     options[:q] = params[:q]
     options[:device_id] = @device.id
-
     @stores = ListStores.new(current_corporate, current_user, options).fetch
     @stores = @stores.with_favorite(@device.id)
   end
@@ -15,5 +14,8 @@ class Api::V1::StoresController < Api::ApiController
   end
   def search
     @stores = current_corporate.subtree.where(search: true)
+  end
+  def pay
+    @stores = current_corporate.subtree.where(paid: true)
   end
 end

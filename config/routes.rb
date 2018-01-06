@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' } do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
-      resource :session, only: [:create, :destroy]
+      resource :session, only: [:create, :show, :update, :destroy] do
+        post :register
+      end
 
       resource :device,             only: [:show, :create, :update]
       resource :position,           only: [:update]
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
 
       resources :stores, only: [ :index, :show ] do
         collection {get 'search' }
+        collection {get 'pay' }
         resources :categories, only: [:index]
         resources :products,   only: [:index, :show]
         resources :stores,     only: [:index]

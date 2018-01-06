@@ -1,5 +1,5 @@
 class Api::V1::CategoriesController < Api::ApiController
-  before_action :authenticate!, :verify_user_permissions!
+  #before_action :authenticate!, :verify_user_permissions!
 
   def index
     list_categories = ListCategories.new(

@@ -5,7 +5,10 @@ class Client < ActiveRecord::Base
   include EncryptPassword
 
   belongs_to :store
-  has_and_belongs_to_many :stores
+  has_and_belongs_to_many :stores, touch: true
+  after_touch :clear_association_cache
+  validates :username, uniqueness: true
+  validates :email, uniqueness: true
 
   def self.authenticate(username, password, store_id)
     if client = where(username: username, store_id: store_id, blocked: false).first

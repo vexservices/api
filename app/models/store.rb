@@ -19,6 +19,7 @@ class Store < ActiveRecord::Base
   has_many :publishes
   has_many :sections, class_name: 'Department'
   has_many :messages
+  has_many :clients
 
   has_and_belongs_to_many :departments
 
