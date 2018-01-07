@@ -4,7 +4,6 @@ json.client do
   json.username     @client.username
   json.token        @client.token
   json.admin        @client.admin
-  json.email        @client.email
   json.blocked      @client.blocked
   json.store_ids    @client.store_ids
   json.stores @client.stores do |store|
