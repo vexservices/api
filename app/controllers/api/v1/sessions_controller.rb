@@ -54,17 +54,17 @@ class Api::V1::SessionsController < Api::ApiController
     end
 
     def success_login(client)
-      render json: { success: true, token: client.token, message: "Signed in successfully", name: client.name, username: client.username, email: client.email, store_ids: client.store_ids }, status: 200
+      render json: { success: true, token: client.token, message: "Signed in successfully", name: client.name, username: client.username, store_ids: client.store_ids }, status: 200
     end
 
     def success_register(client)
-      render json: { success: true, token: client.token, message: "Registration successful", name: client.name, username: client.username, email: client.email, store_ids: client.store_ids }, statue: 200
+      render json: { success: true, token: client.token, message: "Registration successful", name: client.name, username: client.username, store_ids: client.store_ids }, statue: 200
     end
     def success_logout
       render json: { success: true, message: "Signed out successfully" }, status: 200
     end
 
     def client_params
-      params.require(:client).permit(:username, :password, :name, :email, :blocked, :store_ids)
+      params.require(:client).permit(:username, :password, :name, :blocked, :store_ids)
     end
 end
