@@ -17,7 +17,9 @@ Rails.application.routes.draw do
       resources :maps,              only: [:index]
       resources :messages,          only: [:index]
       resources :pins,              only: [:index, :show, :create, :destroy]
-      resources :products,          only: [:index, :show]
+      resources :products,          only: [:index, :show] do
+        collection {get 'search'}
+      end
       resources :streets,           only: [:index, :create, :update, :destroy]
       resources :super_departments, only: [:index]
 

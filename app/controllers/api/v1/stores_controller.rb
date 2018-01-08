@@ -13,6 +13,15 @@ class Api::V1::StoresController < Api::ApiController
     @store = Store.with_favorite(@device.id).find(params[:id])
   end
   def search
+
+    options = params.permit(:store_id)
+    options[:q] = params[:q]
+
+    list_products = ListProducts.new(current_corporate, current_user, options)
+
+    @publishes = list_products.fetch
+    @ids = list_products.stores_ids
+
     @stores = current_corporate.subtree.where(search: true)
   end
   def pay

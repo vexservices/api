@@ -10,7 +10,15 @@ class Api::V1::ProductsController < Api::ApiController
     @publishes = list_products.fetch
     @ids = list_products.stores_ids
   end
+  def search
+    options = params.permit(:store_id)
+    options[:q] = params[:q]
 
+    list_products = ListProducts.new(current_corporate, current_user, options)
+
+    @publishes = list_products.fetch
+    @ids = list_products.stores_ids
+  end
   def show
     @publish = Publish.find(params[:id])
     @pin = @device.pins.search(@publish.id)
