@@ -34,11 +34,12 @@ gem 'money'
 # Heroku
 gem 'asset_sync'
 gem 'fog'
-gem 'newrelic_rpm'
 
 # Jobs
 gem 'sinatra', require: false
 gem 'sidekiq'
+gem 'sidekiq-status'
+gem 'redis-namespace'
 
 # Geocoder
 gem 'geocoder'

@@ -8,6 +8,7 @@ json.stores @stores do |store|
     json.city         store.address_city
     json.state        store.address_state
     json.zip          store.address_zip
+    json.contact      store.contact
     json.phone        store.phone
     json.email        store.official_email
     json.website      store.website
