@@ -4,7 +4,7 @@ class Api::V1::SessionsController < Api::ApiController
 
   def register
     @client  = current_corporate.clients.build(client_params)
-
+    @client.stores << Store.where(free: true)
     if @client.save
       success_register(@client)
     else
