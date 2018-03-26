@@ -25,9 +25,17 @@ class Api::V1::SessionsController < Api::ApiController
 
     @client = current_user
     store_ids = client_params.delete(:store_ids)
-    if @client.update_attributes(client_params)
+    buy_store_id = client_params.delete(:buy_store_id)
+    update_params = client_params.except(:store_ids, :buy_store_id)
+
+    store_ids_array = store_ids.split(',')
+    purchased_store = Store.find(buy_store_id)
+    purchased_store_subtree_ids = purchased_store.subtree_ids
+    store_ids_to_add = store_ids_array + purchased_store_subtree_ids
+
+    if @client.update_attributes(update_params)
       if store_ids
-        @client.store_ids = store_ids.split(',')
+        @client.store_ids = store_ids_to_add
       end
       render :show, id: @client.id
     else
@@ -65,6 +73,6 @@ class Api::V1::SessionsController < Api::ApiController
     end
 
     def client_params
-      params.require(:client).permit(:username, :password, :name, :blocked, :store_ids)
+      params.require(:client).permit(:username, :password, :name, :blocked, :store_ids, :buy_store_id)
     end
 end

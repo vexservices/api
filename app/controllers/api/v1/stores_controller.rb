@@ -23,6 +23,9 @@ class Api::V1::StoresController < Api::ApiController
     @ids = list_products.stores_ids
 
     @stores = current_corporate.subtree.where(search: true)
+    if (authenticate?)
+      @stores = @stores.select {|store| store.can_see?(current_user.store_ids) || store.paid}
+    end
   end
   def pay
     @stores = current_corporate.subtree.where(paid: true)

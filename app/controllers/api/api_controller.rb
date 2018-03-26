@@ -66,8 +66,17 @@ class Api::ApiController < ApplicationController
     end
 
     def verify_user_permissions!
-      if authenticate? && params[:store_id] && !current_user.can_see_store?(params[:store_id])
-        raise Client::AuthorizationError
+      if (params[:store_id])
+        store = Store.find(params[:store_id]) 
+        if authenticate? && !current_user.can_see_store?(params[:store_id]) && !store.paid
+          raise Client::AuthorizationError
+        end
+      end
+      if (params[:id])
+        store = Store.find(params[:id])
+        if authenticate? && !current_user.can_see_store?(params[:id]) && !store.paid
+          raise Client::AuthorizationError
+        end
       end
     end
 end

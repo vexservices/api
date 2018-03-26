@@ -73,4 +73,8 @@ class Store < ActiveRecord::Base
   def search_name
     "#{self.short_name} #{self.keywords}"
   end
+
+  def can_see?(store_ids)
+    store_ids.include?(self.id)
+  end
 end
