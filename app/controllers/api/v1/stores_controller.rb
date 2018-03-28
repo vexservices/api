@@ -27,6 +27,16 @@ class Api::V1::StoresController < Api::ApiController
       @stores = @stores.select {|store| store.can_see?(current_user.store_ids) || store.paid}
     end
   end
+
+  def map
+    options = params.permit(:store_id)
+    options[:q] = params[:q]
+    @stores = current_corporate.subtree
+    if (authenticate?)
+      @stores = @stores.select {|store| store.can_see?(current_user.store_ids) || store.paid}
+    end
+  end
+
   def pay
     @stores = current_corporate.subtree.where(paid: true)
   end

@@ -16,13 +16,13 @@ class SearchAddresses
 
   def fetch
     scope = Address.ransack(query).result(distinct: true)
-
     if user && !user.admin
       stores_ids = user.store_ids
     else
       stores_ids = corporate.subtree_ids
     end
 
+    stores_ids = @corporate.subtree_ids
     scope = scope.joins(:store).where(store_id: stores_ids )
 
     if radius.present?

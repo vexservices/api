@@ -26,10 +26,11 @@ Rails.application.routes.draw do
       resources :stores, only: [ :index, :show ] do
         collection {get 'search' }
         collection {get 'pay' }
+        collection {get 'map' }
         resources :categories, only: [:index]
         resources :products,   only: [:index, :show]
         resources :stores,     only: [:index]
-
+        resources :maps,       only: [:index]
         resources :messages, only: [:index, :create, :show] do
           collection { get 'unread' }
         end
