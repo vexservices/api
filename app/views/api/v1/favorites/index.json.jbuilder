@@ -3,6 +3,8 @@ json.cache! ['V1', cache_key_for_records('favorite', @favorites), @device.try(:i
     json.cache! ['V1', 'favorite', favorite] do
       json.id               favorite.id
       json.name             favorite.name
+      json.formatted_name   favorite.formatted_name
+      json.short_name       favorite.short_name
       json.address          favorite.address_street
       json.city             favorite.address_city
       json.state            favorite.address_state

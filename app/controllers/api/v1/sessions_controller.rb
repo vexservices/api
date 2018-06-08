@@ -62,6 +62,15 @@ class Api::V1::SessionsController < Api::ApiController
     end
 
     def success_login(client)
+      store_ids = client.store_ids
+      free_ids = Store.where(free: true).pluck(:id)
+
+      free_ids.each do |free_id|
+        if (!store_ids.include? free_id)
+          client.stores << Store.where(id: free_id)
+          client.save
+        end
+      end
       render json: { success: true, token: client.token, message: "Signed in successfully", name: client.name, username: client.username, store_ids: client.store_ids }, status: 200
     end
 

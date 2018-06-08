@@ -70,6 +70,8 @@ class Api::ApiController < ApplicationController
         store = Store.find(params[:store_id]) 
         if authenticate? && !current_user.can_see_store?(params[:store_id]) && !store.paid
           raise Client::AuthorizationError
+        else
+          return
         end
       end
       if (params[:id])

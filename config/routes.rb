@@ -14,7 +14,9 @@ Rails.application.routes.draw do
       resources :categories,        only: [:index]
       resources :departments,       only: [:index]
       resources :favorites,         only: [:index, :create, :destroy]
-      resources :maps,              only: [:index]
+      resources :maps,              only: [:index] do
+        collection {get 'search' }
+      end
       resources :messages,          only: [:index]
       resources :pins,              only: [:index, :show, :create, :destroy]
       resources :products,          only: [:index, :show] do

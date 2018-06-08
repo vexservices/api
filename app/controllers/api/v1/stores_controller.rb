@@ -22,7 +22,7 @@ class Api::V1::StoresController < Api::ApiController
     @publishes = list_products.fetch
     @ids = list_products.stores_ids
 
-    @stores = current_corporate.subtree.where(search: true)
+    @stores = current_corporate.subtree.where(search: true).order(:name)
     if (authenticate?)
       @stores = @stores.select {|store| store.can_see?(current_user.store_ids) || store.paid}
     end

@@ -1,10 +1,14 @@
 json.cache! ['V1', @store] do
   json.id           @store.id
   json.name         @store.name
+  json.formatted_name @store.formatted_name
+  json.short_name   @store.short_name
   json.address      @store.address_street
   json.city         @store.address_city
   json.state        @store.address_state
   json.zip          @store.address_zip
+  json.latitude     @store.address_latitude
+  json.longitude    @store.address_longitude
   json.contact      @store.contact
   json.phone        @store.phone
   json.email        @store.official_email

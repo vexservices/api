@@ -32,7 +32,7 @@ class Store < ActiveRecord::Base
 
   def self.with_messages(device)
     joins(:messages)
-      .select('stores.id, stores.name, stores.logo, stores.updated_at')
+      .select('stores.id, stores.name, stores.formatted_name, stores.short_name, stores.logo, stores.updated_at')
       .select('SUM(CASE WHEN messages.read_at IS NULL AND messages.kind = 2 THEN 1 ELSE 0 END) as messages_count')
       .group('stores.id, stores.name, stores.logo')
       .merge(Message.of_device(device.id))

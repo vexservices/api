@@ -8,6 +8,14 @@ RSpec.describe Publish, type: :model do
     should delegate_method(:store_name).to(:store).as(:name)
   end
 
+  it '#store_formatted_name' do
+    should delegate_method(:store_formatted_name).to(:store).as(:formatted_name)
+  end
+
+  it '#store_short_name' do
+    should delegate_method(:store_short_name).to(:store).as(:short_name)
+  end
+
   it '#store_logo' do
     should delegate_method(:store_logo).to(:store).as(:logo)
   end

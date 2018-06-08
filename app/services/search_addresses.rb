@@ -12,25 +12,27 @@ class SearchAddresses
     @latitude  = options[:latitude]
     @longitude = options[:longitude]
     @device_id = options[:device_id]
+
+    set_store_ids
   end
 
   def fetch
     scope = Address.ransack(query).result(distinct: true)
-    if user && !user.admin
-      stores_ids = user.store_ids
-    else
-      stores_ids = corporate.subtree_ids
+
+    scope = scope.joins(:store).where(store_id: @store_ids )
+
+    device = Device.search_by_id_or_token(device_id).first
+
+    if !radius.present?
+      radius = device.radius
     end
 
-    stores_ids = @corporate.subtree_ids
-    scope = scope.joins(:store).where(store_id: stores_ids )
-
     if radius.present?
+
       device = Device.search_by_id_or_token(device_id).first
 
       @latitude  ||= device.latitude
       @longitude ||= device.longitude
-
       if latitude.present? && longitude.present?
         scope = scope.near([latitude, longitude], radius, units: :km)
       else
@@ -40,4 +42,17 @@ class SearchAddresses
 
     scope
   end
+
+  protected
+
+    def set_store_ids
+      corporate_ids = corporate.subtree_ids
+      user_ids = user.store_ids
+      stores = Store.where(paid:true)
+      paid_ids = stores.map(&:id)
+
+      @store_ids = corporate_ids & (user_ids | paid_ids)
+
+    end
+
 end

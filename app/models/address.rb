@@ -4,5 +4,5 @@ class Address < ActiveRecord::Base
   reverse_geocoded_by :latitude, :longitude
 
   delegate :logo, :official_email, :website, :about, :phone,
-    :name, :corporate, to: :store, prefix: true
+    :name, :short_name, :formatted_name, :search_name, :corporate, to: :store, prefix: true
 end
