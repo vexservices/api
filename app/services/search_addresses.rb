@@ -46,13 +46,12 @@ class SearchAddresses
   protected
 
     def set_store_ids
-      corporate_ids = corporate.subtree_ids
-      user_ids = user.store_ids
-      stores = Store.where(paid:true)
-      paid_ids = stores.map(&:id)
-
-      @store_ids = corporate_ids & (user_ids | paid_ids)
-
+      stores = corporate.subtree.where(search:true)
+      if (corporate.app.authenticate?)
+        stores = stores.select {|store|store.can_see?(user.store_ids) || store.paid}
+      end
+      @store_ids = stores.map(&:id)
+      Rails.logger.debug "@store_ids: #{@store_ids}"
     end
 
 end
