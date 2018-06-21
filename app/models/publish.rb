@@ -12,7 +12,7 @@ class Publish < ActiveRecord::Base
   belongs_to :store
 
   delegate :name, :regular_price, :description, :category_name, :image,
-    :contact_info, :pictures, :payment_option,
+    :contact_info, :pictures, :payment_option, :banner,
     to: :product, prefix: true, allow_nil: true
 
   delegate :name, :logo, to: :store, prefix: true, allow_nil: true

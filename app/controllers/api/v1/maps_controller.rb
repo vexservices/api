@@ -46,6 +46,8 @@ class Api::V1::MapsController < Api::ApiController
   end
 
   def set_store
+    Rails.logger.debug "params.to_json: #{params.to_json}"
+    Rails.logger.debug "params[:store_id]: #{params[:store_id]}"
     @store = Store.find(params[:store_id]) if params[:store_id]
   end
 

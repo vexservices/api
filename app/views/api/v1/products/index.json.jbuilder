@@ -7,6 +7,7 @@ json.cache! ['V1', cache_key_for_records('publish', @publishes), @ids, current_u
       json.id             publish.id
       json.product_id     publish.product_id
       json.name           publish.product_name
+      json.banner         publish.product_banner
       json.regular_price  number_to_currency_by_store_currency publish.product_regular_price
       json.price          number_to_currency_by_store_currency publish.price
       json.description    simple_format(publish.product_description)

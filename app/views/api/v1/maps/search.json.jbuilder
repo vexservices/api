@@ -1,9 +1,7 @@
 json.stores @addresses do |store|
-  json.cache! ['V1', store, current_user.try(:cache_key)] do
-    json.id           store.store_id
-    json.name         store.store_search_name
-    json.display      store.store_short_name
-  end
+  json.id           store.store_id
+  json.name         store.store_search_name
+  json.display      store.store_display_name
 end
 json.cache! ['V1', cache_key_for_records('publish', @publishes), @ids, current_user.try(:cache_key)], expires_in: 24.hours do
   json.products @publishes do |publish|

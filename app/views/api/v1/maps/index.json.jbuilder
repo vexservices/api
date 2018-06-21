@@ -14,5 +14,7 @@ json.stores @addresses do |address|
     json.state     address.state
     json.zip       address.zip
     json.corporate address.store_corporate
+    json.map_icon  address.store.map_icon
+    json.show_on_map address.store.show_on_map
   end
 end

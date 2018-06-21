@@ -26,5 +26,18 @@ json.stores @stores do |store|
     json.register     store.register ? store.register : false
     json.paid         store.paid
     json.price        number_to_currency(store.price)
+    json.contact_button    store.contact_button
+    json.map_button        store.map_button
+    json.chat_button       store.chat_button
+    json.waze_button       store.waze_button
+    json.favorite_button   store.favorite_button
+    json.show_address      store.show_address
+    json.show_on_map       store.show_on_map
+    json.map_icon          store.map_icon
+    json.store_tab         store.store_tab
+    json.product_tab       store.product_tab
+    json.pdf_button_link   store.pdf_button_link
+    json.video_button_link store.video_button_link
+    json.banner            store.banner
   end
 end

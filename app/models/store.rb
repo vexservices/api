@@ -28,6 +28,8 @@ class Store < ActiveRecord::Base
 
   delegate :test_mode?, to: :app, prefix: true, allow_nil: true
 
+  enum map_icon: [:marker, :fuel, :food, :exit, :hotel, :hospital]
+
   mount_uploader :logo, LogoUploader
 
   def self.with_messages(device)
@@ -72,6 +74,10 @@ class Store < ActiveRecord::Base
 
   def search_name
     "#{self.short_name} #{self.keywords}"
+  end
+
+  def display_name
+    "#{self.short_name} (#{self.address_city})"
   end
 
   def can_see?(store_ids)

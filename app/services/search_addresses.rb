@@ -18,9 +18,9 @@ class SearchAddresses
 
   def fetch
     scope = Address.ransack(query).result(distinct: true)
-
+    Rails.logger.debug "scope.length: #{scope.length}"
     scope = scope.joins(:store).where(store_id: @store_ids )
-
+    Rails.logger.debug "scope.length: #{scope.length}"
     device = Device.search_by_id_or_token(device_id).first
 
     if !radius.present?
@@ -47,7 +47,8 @@ class SearchAddresses
 
     def set_store_ids
       stores = corporate.subtree.where(search:true)
-      if (corporate.app.authenticate?)
+      Rails.logger.debug "corporate: #{corporate.to_json}"
+      if (corporate.app && corporate.app.authenticate?)
         stores = stores.select {|store|store.can_see?(user.store_ids) || store.paid}
       end
       @store_ids = stores.map(&:id)
